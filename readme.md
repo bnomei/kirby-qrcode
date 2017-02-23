@@ -1,4 +1,4 @@
-# Kirby Random
+# Kirby QR Code
 
 ![GitHub release](https://img.shields.io/github/release/bnomei/kirby-qrcode.svg?maxAge=1800) ![License](https://img.shields.io/github/license/mashape/apistatus.svg) ![Kirby Version](https://img.shields.io/badge/Kirby-2.3%2B-red.svg)
 
@@ -49,40 +49,38 @@ The plugin also adds a `$page->qrcode()` function which returns an image as [Med
 
 You can use the default values, override them or set your own parameters on-the-fly using an associative array. Missing parameters will fallback to defaults of lib.
 
-```
-<?php 
-	// DEFAULTS
-	$qrcodeDefault = $page->qrcode(); // Kirby Toolkit Media Object
+```php
+// DEFAULTS
+$qrcodeDefault = $page->qrcode(); // Kirby Toolkit Media Object
 
-	// CUSTOM
-	$allCustomParameters = [
-		'Text' => $page->url(), // plugin default
-	    'Size' => 300,
-	    'Padding' => 10,
-	    'ErrorCorrection' => 'high',
-	    'ForegroundColor' => ['r' => 0, 'g' => 0, 'b' => 255, 'a' => 0],
-	    'BackgroundColor' => ['r' => 255, 'g' => 255, 'b' => 255, 'a' =>0],
-		'Label' => 'You take the blue pill',
-	    'LabelFontSize' => 16,
-	    'ImageType' => Endroid\QrCode\QrCode::IMAGE_TYPE_PNG,  // lib default
-	    'Filename' => $page->slug().'-qrcode', // plugin default
-	];
+// CUSTOM
+$allCustomParameters = [
+	'Text' => $page->url(), // plugin default
+    'Size' => 300,
+    'Padding' => 10,
+    'ErrorCorrection' => 'high',
+    'ForegroundColor' => ['r' => 0, 'g' => 0, 'b' => 255, 'a' => 0],
+    'BackgroundColor' => ['r' => 255, 'g' => 255, 'b' => 255, 'a' =>0],
+	'Label' => 'You take the blue pill',
+    'LabelFontSize' => 16,
+    'ImageType' => Endroid\QrCode\QrCode::IMAGE_TYPE_PNG,  // lib default
+    'Filename' => $page->slug().'-qrcode', // plugin default
+];
 
-	// override defaults. this can be done in config.php as well.
-	c::set('plugin.qrcode', $allCustomParameters);
-	$qrcodeCustom = $page->qrcode(); // using new defaults now
+// override defaults. this can be done in config.php as well.
+c::set('plugin.qrcode', $allCustomParameters);
+$qrcodeCustom = $page->qrcode(); // using new defaults now
 
-	// or use them on-the-fly
-	$qrcodeCustom = $page->qrcode([
-	    'Label' => 'You take the red pill',
-	    'ForegroundColor' => ['r' => 255, 'g' => 0, 'b' => 0, 'a' => 0],
-	    'ImageType' => Endroid\QrCode\QrCode::IMAGE_TYPE_JPEG,
-		]);
+// or use them on-the-fly
+$qrcodeCustom = $page->qrcode([
+    'Label' => 'You take the red pill',
+    'ForegroundColor' => ['r' => 255, 'g' => 0, 'b' => 0, 'a' => 0],
+    'ImageType' => Endroid\QrCode\QrCode::IMAGE_TYPE_JPEG,
+	]);
 
-	// then use media object to get brick and echo the image
-	// https://github.com/getkirby/toolkit/blob/master/lib/media.php#L539
-	echo $qrcodeCustom->html();
-?>
+// then use media object to get brick and echo the image
+// https://github.com/getkirby/toolkit/blob/master/lib/media.php#L539
+echo $qrcodeCustom->html();
 ```
 
 ## Disclaimer
