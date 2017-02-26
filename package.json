@@ -1,7 +1,7 @@
 {
   "name": "kirby-qrcode",
   "description": "Kirby CMS Panel Field and Page-Method rendering a QR Code.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "kirby-plugin",
   "license": "MIT"
 }

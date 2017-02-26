@@ -24,10 +24,11 @@ class KirbyQRCode {
         }
       }
 
-      $path = kirby()->roots()->thumbs();
-      $url  = kirby()->urls()->thumbs();
-      $file = DS.$page->uri().DS.$settings['Filename'].'.'.$qrCode->getImageType();
-
+      $path = kirby()->roots()->thumbs().DS.$page->uri().DS;
+      $url  = kirby()->urls()->thumbs().DS.$page->uri().DS;
+      $file = $settings['Filename'].'.'.$qrCode->getImageType();
+      
+      dir::make($path);
       $qrCode->save($path.$file);
 
       return new Media($path.$file, $url.$file);
