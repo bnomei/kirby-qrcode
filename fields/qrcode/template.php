@@ -5,9 +5,7 @@
 $qrcode = $page->qrcode()->html(); // media object to brick
 
 $div = brick('div')
-	->addClass('plugin-'.$fieldname)
-	->append($qrcode);
+    ->addClass('plugin-'.$fieldname)
+    ->append($qrcode);
 
 echo $div;
-
-?>
