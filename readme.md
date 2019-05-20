@@ -7,7 +7,7 @@ Kirby CMS Panel Field and Page-Method rendering a QR Code.
 This plugin is free but if you use it in a commercial project please consider to [make a donation 🍻](https://www.paypal.me/bnomei/5).
 
 Notes:
-- This plugin uses the [endroid/QrCode](https://github.com/endroid/QrCode) lib v1.6.5.
+- This plugin uses the [endroid/QrCode](https://github.com/endroid/QrCode) lib v1.9.3.
 - This plugin does not cache the image but recreate it on every request and will save it to the `/thumbs` folder (`kirby()->roots()->thumbs()`).
 
 ## Requirements
